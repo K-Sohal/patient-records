@@ -8,6 +8,18 @@ The application should assist General Practitioners (GPs) when recording patient
 
 ### Project Goals
 
+Design goals:
+* Produce a 3 tier application consisting of a SQL database, C# business and WPF GUI layer
+* The business layer should be unit tested
+* The database should have at least two linked tables
+* Project should have concise documentation
+
+User specific goals:
+* User authentication system
+* GP/patient CRUD functionality
+* High usability for data entry
+* Data security
+
 ## Class Diagrams
 
 ## WPF
@@ -16,7 +28,9 @@ The application should assist General Practitioners (GPs) when recording patient
 
 ### Sprint 1 - 01/12/2020
 
-By the end of sprint one I aim to have a three tier application with basic functionality and a basic user interface.
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/StartofSprint1.png?raw=true "Start of Sprint 1")
+
+By the end of sprint 1, I aim to have a three tier application with basic functionality and a basic user interface.
 
 #### Sprint Goals
 - [ ] Complete user story 0.1
