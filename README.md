@@ -33,11 +33,23 @@ User specific goals:
 By the end of sprint 1, I aim to have a three tier application with basic functionality and a basic user interface.
 
 #### Sprint Goals
-- [ ] Complete user story 0.1
+
+- [x] Complete user story 0.1
 - [ ] Complete user story 0.2
 - [ ] Complete user story 0.3
-- [ ] Complete user story 0.4
-- [ ] Update read me file
-- [ ] Create local git folder
-- [ ] Commit all changes from local to github
-- [ ] Complete agile retrospective
+- [x] Complete user story 0.4
+- [x] Update read me file
+- [x] Create local git folder
+- [x] Commit all changes from local to github
+- [x] Complete agile retrospective
+
+#### Sprint Review
+
+Documentation and database design was completed. The create and delete functionality of the business layer was implemented. The update functionality needs to be added to the business layer, also the business layer needs to be unit tested. The GUI needs to be created.
+
+#### Sprint Retrospective
+
+Not all user stories were completed, in part due to limited time this sprint because of a test. Additionally, I got carried away with the database design by adding features that were not priority. This increased the complexity of the design and therefore increased the time taken to develop the database and the business layer. The GUI looks like it will take a lot of time and is a large part of the project due to the database having many tables. Therefore user story 0.2 - Create a GUI should be broken down into sub tasks as this will most likely take more than one sprint to complete.
+
+
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/EndofSprint1.png?raw=true "End of Sprint 1")
