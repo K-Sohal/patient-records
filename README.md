@@ -1,4 +1,4 @@
-# patient-records
+# Patient Medical Records
 
 ## Project Overview
 
