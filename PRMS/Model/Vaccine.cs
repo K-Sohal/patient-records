@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace Model
+{
+    public partial class Vaccine
+    {
+        public int VaccineId { get; set; }
+        public string Vaccine1 { get; set; }
+    }
+}
