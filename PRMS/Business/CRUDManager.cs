@@ -13,7 +13,7 @@ namespace Business
 		{
 		}
 
-		// Create
+		//Create
 		public void CreateGP(string firstName, string lastName)
 		{
 			using var db = new PatientRecordsContext();
@@ -152,7 +152,6 @@ namespace Business
 			db.Patients.Remove(selectedPatient);
 			db.SaveChanges();
 		}
-
 		public void DeleteConcern(int concernid)
 		{
 			using var db = new PatientRecordsContext();
@@ -204,9 +203,90 @@ namespace Business
 		{
 			using var db = new PatientRecordsContext();
 			var selectedPatientMedication = db.PatientMedications.Where(x => x.PatientMedicationId == patientMedicationid).FirstOrDefault();
-			db.PatientMedications.Remove(selectedMedication);
+			db.PatientMedications.Remove(selectedPatientMedication);
 			db.SaveChanges();
 		}
 
+		//Update
+
+		public void UpdateGP(int gpid, string firstName, string lastName)
+		{
+			using var db = new PatientRecordsContext();
+			var selectedGP = db.Gps.Where(x => x.Gpid == gpid).FirstOrDefault();
+			selectedGP.FirstName = firstName;
+			selectedGP.LastName = lastName;
+			db.SaveChanges();
+		}
+
+		public void UpdatePatient(int patientid, Patient gp, string firstName, string lastName, DateTime dob, string address1,
+			string address2, string address3, string city, string region, string postcode, string contactnumber)
+		{
+			using var db = new PatientRecordsContext();
+			var selectedPatient = db.Patients.Where(x => x.PatientId == patientid).FirstOrDefault();
+			selectedPatient.Gp = gp;
+			selectedPatient.FirstName = firstName;
+			selectedPatient.LastName = lastName;
+			selectedPatient.DateOfBirth = dob;
+			selectedPatient.Address1 = address1;
+			selectedPatient.Address2 = address2;
+			selectedPatient.Address3 = address3;
+			selectedPatient.City = city;
+			selectedPatient.Region = region;
+			selectedPatient.PostalCode = postcode;
+			selectedPatient.ContactNumber = contactnumber;
+			db.SaveChanges();
+		}
+
+		public void UpdateConcern(int concernid, string concern)
+		{
+			using var db = new PatientRecordsContext();
+			var selectedConcern = db.Concerns.Where(x => x.ConcernId == concernid).FirstOrDefault();
+			selectedConcern.Concern1 = concern;
+			db.SaveChanges();
+		}
+		public void UpdateVaccine(int vaccineid, string name)
+		{
+			using var db = new PatientRecordsContext();
+			var selectedVaccine = db.Vaccines.Where(x => x.VaccineId == vaccineid).FirstOrDefault();
+			selectedVaccine.Vaccine1 = name;
+			db.SaveChanges();
+		}
+
+		public void UpdatePatientImmunisation(int patientid, DateTime vaccinedate)
+		{
+			using var db = new PatientRecordsContext();
+			var selectedPatient = db.PatientImmunisations.Where(x => x.PatientId == patientid).FirstOrDefault();
+			selectedPatient.VaccineDate = vaccinedate;
+			db.SaveChanges();
+		}
+
+		public void UpdateAllergy(int allergyid, string allergen, string reaction)
+		{
+			using var db = new PatientRecordsContext();
+			var selectedAllergy = db.Allergies.Where(x => x.AllergyId == allergyid).FirstOrDefault();
+			selectedAllergy.Allergen = allergen;
+			selectedAllergy.ReactionType = reaction;
+			db.SaveChanges();
+		}
+
+		public void UpdateMedication(int medicationid, string name)
+		{
+			using var db = new PatientRecordsContext();
+			var selectedMedication = db.Medications.Where(x => x.MedicationId == medicationid).FirstOrDefault();
+			selectedMedication.MedicationName = name;
+			db.SaveChanges();
+		}
+
+		public void UpdatePatientMedication(int patientMedicationid, Medication medication, string frequency, string dosage, DateTime startdate, DateTime stopdate)
+		{
+			using var db = new PatientRecordsContext();
+			var selectedPatientMedication = db.PatientMedications.Where(x => x.PatientMedicationId == patientMedicationid).FirstOrDefault();
+			selectedPatientMedication.Medication = medication;
+			selectedPatientMedication.Frequency = frequency;
+			selectedPatientMedication.Dosage = dosage;
+			selectedPatientMedication.StartDate = startdate;
+			selectedPatientMedication.StopDate = stopdate;
+			db.SaveChanges();
+		}
 	}
 }
