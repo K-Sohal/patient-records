@@ -7,10 +7,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Business
 {
-	class CRUDManager
+	public class CRUDManager
 	{
 		static void Main(string[] args)
 		{
+		}
+
+		public Gp selectedGP { get; set; }
+
+		public List<Gp> RetrieveAllGPs()
+		{
+			using (var db = new PatientRecordsContext())
+			{
+				return db.Gps.ToList();
+			}
+		}
+
+		public void SetSelectedGP(object selectedItem)
+		{
+			selectedGP = (Gp)selectedItem;
 		}
 
 		//Create
