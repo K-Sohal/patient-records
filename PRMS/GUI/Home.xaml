@@ -1,0 +1,47 @@
+﻿<Page x:Class="GUI.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="600"
+Title="Home">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="250"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions >
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">GP</Label>
+		
+		
+		<Button Content="Create" Grid.Row="4" Grid.Column="1" Click="ButtonCreate_Click"/>
+		<Button Content="Delete" Grid.Row="4" Grid.Column="2" Click="ButtonDelete_Click"/>
+		<Button Content="Update" Grid.Row="5" Grid.Column="1" Click="ButtonUpdate_Click" />
+		<Button Content="View Patients" Grid.Row="5" Grid.Column="2" Background="LightBlue" />
+		
+		
+		<Label x:Name="LabelID" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="1" Background="White" >ID</Label>
+		<Label x:Name="LabelForename" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="1" Background="White" >Forename</Label>
+		<Label x:Name="LabelSurname" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1" Background="White" >Surname</Label>
+		
+		
+		<TextBox x:Name="TextID" Grid.Row="1" Grid.Column="2" Background="White" IsEnabled="False" IsReadOnlyCaretVisible="True"></TextBox>
+		<TextBox x:Name="TextForename" Grid.Row="2" Grid.Column="2" Background="White"></TextBox>
+		<TextBox x:Name="TextSurname" Grid.Row="3" Grid.Column="2" Background="White"></TextBox>
+		
+		
+		<ListBox x:Name="ListBoxGPs" Background="Beige"  Grid.Row="1" Grid.Column="0" Grid.RowSpan="5" SelectionChanged="ListBoxPost_SelectionChanged">
+		</ListBox>
+	</Grid>
+</Page>
