@@ -53,3 +53,26 @@ Not all user stories were completed, in part due to limited time this sprint bec
 
 
 ![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/EndofSprint1.png?raw=true "End of Sprint 1")
+
+### Sprint 2 - 02/12/2020
+
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/StartofSprint2.png?raw=true "Start of Sprint 2")
+
+By the end of sprint 2, I aim to have my business layer completed with some unit tests. Also I would like to create a GUI for GP CRUD functionality and link it to my business layer.
+
+#### Sprint Goals
+
+- [x] Complete user story 0.3.4
+- [x] Complete user story 0.3.3
+- [x] Complete user story 0.3
+- [x] Complete user story 0.2
+- [x] Update read me file
+- [x] Commit all changes from local to github
+- [x] Complete agile retrospective
+
+#### Sprint Review
+
+
+
+#### Sprint Retrospective
+
