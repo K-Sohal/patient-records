@@ -34,10 +34,10 @@ By the end of sprint 1, I aim to have a three tier application with basic functi
 
 #### Sprint Goals
 
-- [x] Complete user story 0.1
-- [ ] Complete user story 0.2
-- [ ] Complete user story 0.3
-- [x] Complete user story 0.4
+- [x] Complete user story 0.1 - Create a database
+- [ ] Complete user story 0.2 - Create a basic GUI
+- [ ] Complete user story 0.3 - Create a business layer
+- [x] Complete user story 0.4 - Complete initial documentation
 - [x] Update read me file
 - [x] Create local git folder
 - [x] Commit all changes from local to github
@@ -62,13 +62,39 @@ By the end of sprint 2, I aim to have my business layer completed with some unit
 
 #### Sprint Goals
 
-- [x] Complete user story 0.3.4
-- [x] Complete user story 0.3.3
-- [x] Complete user story 0.3
-- [x] Complete user story 0.2
+- [x] Complete user story 0.3.4 - Test business layer
+- [x] Complete user story 0.3.3 - Add update functionality to business layer
+- [x] Complete user story 0.3 - Create a business layer
+- [x] Complete user story 0.2 - Create a basic GUI for GP CRUD functionality
 - [x] Update read me file
 - [x] Commit all changes from local to github
 - [x] Complete agile retrospective
+
+#### Sprint Review
+
+All of my sprint goals were completed. The business layer has been tested for GP CRUD functionality through some unit testing and some manual testing via the GUI. A basic GUI for GP CRUD functionality was created which can been used as a base for further CRUD operations. A problem I had was changing the ListBox display for GP objects. To solve this, I had to override the ToString method for the GP class by using a partial class customisation.
+
+#### Sprint Retrospective
+
+As mentioned in the last sprint, creating the GUI and linking it to the business layer takes a large amount of time. Partially due to WPF inexperience and partially to the complexity of my project. This was evident today during my sprint as the majority of my time was used to create the GUI. Therefore it is a good idea to allocate more time to GUI related tasks in upcoming sprints. I also encountered an issue where build creation in Visual Studio was taking a really long time. This was solved by closing and reopening my project.
+
+
+
+### Sprint 3 - 03/12/2020
+
+
+By the end of sprint 3, I aim to have all of my GP/ Patient CRUD functionality linked from my business layer to my GUI.
+
+#### Sprint Goals
+
+- [ ] Complete user story 2.1 - Store and change medical information
+- [ ] Complete user story 2.2 - Store and change allergy information
+- [ ] Complete user story 2.3 - Store and change immunisation information
+- [ ] Complete user story 2.4 - Allow patients to input concerns
+- [ ] Complete user story 2.5 - Patient CRUD functionality - linked to a GP
+- [ ] Update read me file
+- [ ] Commit all changes from local to github
+- [ ] Complete agile retrospective
 
 #### Sprint Review
 
