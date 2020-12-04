@@ -84,22 +84,24 @@ As mentioned in the last sprint, creating the GUI and linking it to the business
 
 ![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/StartofSprint3.png?raw=true "Start of Sprint 3")
 
-By the end of sprint 3, I aim to have all of my GP/ Patient CRUD functionality linked from my business layer to my GUI.
+By the end of sprint 3, I aim to be able to have Patient, Medication, Vaccines, Allergy and Concerns CRUD functionality.
 
 #### Sprint Goals
 
-- [ ] Complete user story 2.1 - Store and change medical information
-- [ ] Complete user story 2.2 - Store and change allergy information
-- [ ] Complete user story 2.3 - Store and change immunisation information
-- [ ] Complete user story 2.4 - Allow patients to input concerns
-- [ ] Complete user story 2.5 - Patient CRUD functionality - linked to a GP
-- [ ] Update read me file
-- [ ] Commit all changes from local to github
-- [ ] Complete agile retrospective
+- [x] Complete user story 2.1.1 - Medication CRUD
+- [x] Complete user story 2.2.1 - Allergy CRUD
+- [x] Complete user story 2.3.1 - Immunisation CRUD
+- [ ] Complete user story 2.4 - Concerns CRUD
+- [x] Complete user story 2.5 - Patient CRUD functionality - linked to a GP
+- [x] Update read me file
+- [x] Commit all changes from local to github
+- [x] Complete agile retrospective
 
 #### Sprint Review
 
-
+In this sprint I managed to implement a large amount of CRUD functionality. I also managed to link a patient to a GP so that the GP can only see a list of their own patients. Concerns CRUD still needs to be completed because I ran out of time. In this sprint, I learned how to pass an instance of a class to multiple pages by overloading the page constructor. I also learned about the DatePicker control for selecting DateTime types which is used for patient date of birth. 
 
 #### Sprint Retrospective
+
+The sprint went well however I overestimated how much I could get done today. I had to break down the user stories as I would not have had time to link the CRUD functions to the patients. This will be the goal of the next sprint.
 
