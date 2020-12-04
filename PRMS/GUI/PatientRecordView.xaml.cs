@@ -27,7 +27,7 @@ namespace GUI
 			PopulateAllergyListBox();
 			PopulateVaccineListBox();
 			PopulateMedicineListBox();
-			//PopulateConcernListBox();
+			PopulateConcernListBox();
 		}
 
 		CRUDManager _crudManager;
@@ -39,9 +39,10 @@ namespace GUI
 			ListBoxAllergy.ItemsSource = _crudManager.RetrieveAllAllergies();
 		}
 
+
 		private void ButtonCreate_Click(object sender, RoutedEventArgs e)
 		{
-			_crudManager.CreateAllergy(TextAllergen.Text, TextReaction.Text);
+			_crudManager.CreateAllergy(_crudManager.selectedPatient, TextAllergen.Text, TextReaction.Text);
 			ListBoxAllergy.ItemsSource = null;
 			PopulateAllergyListBox();
 			ListBoxAllergy.SelectedItem = _crudManager.selectedAllergy;
@@ -82,6 +83,8 @@ namespace GUI
 			}
 		}
 
+
+
 		private void PopulateAllergyFields()
 		{
 			if (_crudManager.selectedAllergy != null)
@@ -96,7 +99,6 @@ namespace GUI
 				TextAllergen.Text = "";
 				TextReaction.Text = "";
 			}
-
 		}
 
 		private void AllergyListBoxPost_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -118,7 +120,7 @@ namespace GUI
 
 		private void ButtonCreateVaccine_Click(object sender, RoutedEventArgs e)
 		{
-			_crudManager.CreateVaccine(TextVaccine.Text);
+			_crudManager.CreateVaccine(_crudManager.selectedPatient, TextVaccine.Text, TextVaccineDate.SelectedDate.Value);
 			ListBoxVaccine.ItemsSource = null;
 			PopulateVaccineListBox();
 			ListBoxVaccine.SelectedItem = _crudManager.selectedVaccine;
@@ -150,7 +152,7 @@ namespace GUI
 			}
 			else
 			{
-				_crudManager.UpdateVaccine(_crudManager.selectedVaccine.VaccineId, TextVaccine.Text);
+				_crudManager.UpdateVaccine(_crudManager.selectedVaccine.VaccineId ,TextVaccine.Text, TextVaccineDate.SelectedDate.Value);
 				ListBoxVaccine.ItemsSource = null;
 				PopulateVaccineListBox();
 				_crudManager.selectedVaccine = null;
@@ -165,11 +167,13 @@ namespace GUI
 			{
 				TextVaccineID.Text = _crudManager.selectedVaccine.VaccineId.ToString();
 				TextVaccine.Text = _crudManager.selectedVaccine.Vaccine1;
+				TextVaccineDate.SelectedDate = _crudManager.selectedVaccine.VaccineDate;
 			}
 			else
 			{
 				TextVaccineID.Text = "";
 				TextVaccine.Text = "";
+				TextVaccineDate.SelectedDate = null;
 			}
 
 		}
@@ -192,7 +196,7 @@ namespace GUI
 
 		private void ButtonCreateMedication_Click(object sender, RoutedEventArgs e)
 		{
-			_crudManager.CreateMedication(TextName.Text);
+			_crudManager.CreateMedication(_crudManager.selectedPatient, TextName.Text, TextFrequency.Text, TextDosage.Text, TextStart.SelectedDate.Value, TextStop.SelectedDate.Value);
 			ListBoxMedication.ItemsSource = null;
 			PopulateMedicineListBox();
 			ListBoxMedication.SelectedItem = _crudManager.selectedMedication;
@@ -224,7 +228,7 @@ namespace GUI
 			}
 			else
 			{
-				_crudManager.UpdateMedication(_crudManager.selectedMedication.MedicationId, TextName.Text);
+				_crudManager.UpdateMedication(_crudManager.selectedMedication.MedicationId, TextName.Text, TextFrequency.Text, TextDosage.Text, TextStart.SelectedDate.Value, TextStop.SelectedDate.Value);
 				ListBoxMedication.ItemsSource = null;
 				PopulateMedicineListBox();
 				_crudManager.selectedMedication = null;
@@ -239,13 +243,20 @@ namespace GUI
 			{
 				TextMedicationID.Text = _crudManager.selectedMedication.MedicationId.ToString();
 				TextName.Text = _crudManager.selectedMedication.MedicationName;
+				TextFrequency.Text = _crudManager.selectedMedication.Frequency;
+				TextDosage.Text = _crudManager.selectedMedication.Dosage;
+				TextStart.SelectedDate = _crudManager.selectedMedication.StartDate;
+				TextStop.SelectedDate = _crudManager.selectedMedication.StopDate;
 			}
 			else
 			{
 				TextMedicationID.Text = "";
 				TextName.Text = "";
+				TextFrequency.Text = "";
+				TextDosage.Text = "";
+				TextStart.SelectedDate = null;
+				TextStop.SelectedDate = null;
 			}
-
 		}
 
 		private void MedicationListBoxPost_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -259,74 +270,75 @@ namespace GUI
 
 		// Concerns
 
-		//private void PopulateConcernListBox()
-		//{
-		//	ListBoxConcern.ItemsSource = _crudManager.RetrieveAllConcerns();
-		//}
+		private void PopulateConcernListBox()
+		{
+			ListBoxConcern.ItemsSource = _crudManager.RetrieveAllConcerns();
+		}
 
-		//private void ButtonCreateConcern_Click(object sender, RoutedEventArgs e)
-		//{
-		//	_crudManager.CreateConcern(TextConcern.Text, _crudManager.selectedPatient);
-		//	ListBoxConcern.ItemsSource = null;
-		//	PopulateConcernListBox();
-		//	ListBoxConcern.SelectedItem = _crudManager.selectedConcern;
-		//	PopulateConcernFields();
-		//}
+		private void ButtonCreateConcern_Click(object sender, RoutedEventArgs e)
+		{
+			_crudManager.CreateConcern(TextConcern.Text, _crudManager.selectedPatient);
+			ListBoxConcern.ItemsSource = null;
+			PopulateConcernListBox();
+			ListBoxConcern.SelectedItem = _crudManager.selectedConcern;
+			PopulateConcernFields();
+		}
 
-		//private void ButtonDeleteConcern_Click(object sender, RoutedEventArgs e)
-		//{
-		//	if (_crudManager.selectedConcern == null)
-		//	{
-		//		MessageBox.Show("Please select a concern first!");
-		//	}
-		//	else
-		//	{
-		//		_crudManager.DeleteVaccine(_crudManager.selectedConcern.ConcernId);
-		//		ListBoxConcern.ItemsSource = null;
-		//		PopulateConcernListBox();
-		//		_crudManager.selectedConcern = null;
-		//		PopulateConcernFields();
-		//		MessageBox.Show("Successfully deleted!");
-		//	}
-		//}
+		private void ButtonDeleteConcern_Click(object sender, RoutedEventArgs e)
+		{
+			if (_crudManager.selectedConcern == null)
+			{
+				MessageBox.Show("Please select a concern first!");
+			}
+			else
+			{
+				_crudManager.DeleteConcern(_crudManager.selectedConcern.ConcernId);
+				ListBoxConcern.ItemsSource = null;
+				PopulateConcernListBox();
+				_crudManager.selectedConcern = null;
+				PopulateConcernFields();
+				MessageBox.Show("Successfully deleted!");
+			}
+		}
 
-		//private void ButtonUpdateConcern_Click(object sender, RoutedEventArgs e)
-		//{
-		//	if (_crudManager.selectedConcern == null)
-		//	{
-		//		MessageBox.Show("Please select a Concern first!");
-		//	}
-		//	else
-		//	{
-		//		_crudManager.UpdateConcern(_crudManager.selectedConcern.ConcernId, TextConcern.Text);
-		//		ListBoxConcern.ItemsSource = null;
-		//		PopulateConcernListBox();
-		//		_crudManager.selectedConcern = null;
-		//		PopulateConcernFields();
-		//		MessageBox.Show("Successfully updated!");
-		//	}
-		//}
+		private void ButtonUpdateConcern_Click(object sender, RoutedEventArgs e)
+		{
+			if (_crudManager.selectedConcern == null)
+			{
+				MessageBox.Show("Please select a Concern first!");
+			}
+			else
+			{
+				_crudManager.UpdateConcern(_crudManager.selectedConcern.ConcernId, TextConcern.Text);
+				ListBoxConcern.ItemsSource = null;
+				PopulateConcernListBox();
+				_crudManager.selectedConcern = null;
+				PopulateConcernFields();
+				MessageBox.Show("Successfully updated!");
+			}
+		}
 
-		//private void PopulateConcernFields()
-		//{
-		//	if (_crudManager.selectedConcern != null)
-		//	{
-		//		TextConcern.Text = _crudManager.selectedConcern.Concern1;
-		//	}
-		//	else
-		//	{
-		//		TextConcern.Text = "";
-		//	}
+		private void PopulateConcernFields()
+		{
+			if (_crudManager.selectedConcern != null)
+			{
+				TextConcern.Text = _crudManager.selectedConcern.Concern1;
+			}
+			else
+			{
+				TextConcern.Text = "";
+			}
 
-		//}
+		}
 
-		//private void ConcernListBoxPost_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-		//{
-		//	if (ListBoxConcern.SelectedItem != null)
-		//	{
-		//		_crudManager.SetSelectedConcern(ListBoxConcern.SelectedItem);
-		//		PopulateMedicationFields();
-		//	}
-		//}
+		private void ConcernListBoxPost_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+		{
+			if (ListBoxConcern.SelectedItem != null)
+			{
+				_crudManager.SetSelectedConcern(ListBoxConcern.SelectedItem);
+				PopulateConcernFields();
+			}
+		}
+
 	}
 }

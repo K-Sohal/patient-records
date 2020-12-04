@@ -14,7 +14,7 @@
 			<ColumnDefinition Width="120"/>
 			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="130"/>
 			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="*"/>
@@ -39,15 +39,13 @@
 		
 		<!--Allergy-->
 
-		<Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Allergies</Label>
-		<Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Patient Allergy</Label>
+		<Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Allergies</Label>
 		<Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Details</Label>
 
 
 		<Button Content="Create" Grid.Row="4" Grid.Column="2" Click="ButtonCreate_Click"/>
 		<Button Content="Delete" Grid.Row="4" Grid.Column="3" Click="ButtonDelete_Click" />
 		<Button Content="Update" Grid.Row="5" Grid.Column="2" Click="ButtonUpdate_Click" />
-		<Button Content="Assign" Grid.Row="5" Grid.Column="3" />
 
 
 		<Label x:Name="LabelAllergyID" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="2" Background="White" >ID</Label>
@@ -64,13 +62,11 @@
 
 
 
-		<ListBox x:Name="ListBoxAllergy" Background="Beige" Grid.Column="0" Grid.Row="1" Grid.RowSpan="5" SelectionChanged="AllergyListBoxPost_SelectionChanged"/>
-		<ListBox x:Name="ListBoxPatientAllergy" Background="Beige" Grid.Column="1" Grid.Row="1" Grid.RowSpan="5" />
-		
+		<ListBox x:Name="ListBoxAllergy" Background="Beige" Grid.Column="0" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="2" SelectionChanged="AllergyListBoxPost_SelectionChanged"/>
+
 		<!--Vaccine-->
 
-		<Label Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Vaccines</Label>
-		<Label Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Patient Vaccine</Label>
+		<Label Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Vaccines</Label>
 		<Label Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Details</Label>
 
 
@@ -94,14 +90,12 @@
 
 
 
-		<ListBox x:Name="ListBoxVaccine" Background="Beige" Grid.Column="4" Grid.Row="1" Grid.RowSpan="5" SelectionChanged="VaccineListBoxPost_SelectionChanged"/>
-		<ListBox x:Name="ListBoxPatientVaccine" Background="Beige" Grid.Column="5" Grid.Row="1" Grid.RowSpan="5" />
-
+		<ListBox x:Name="ListBoxVaccine" Background="Beige" Grid.Column="4" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="2" SelectionChanged="VaccineListBoxPost_SelectionChanged"/>
+	
 
 		<!--Medication-->
 
-		<Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Medication</Label>
-		<Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Patient Medication</Label>
+		<Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Medication</Label>
 		<Label Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Details</Label>
 
 
@@ -131,12 +125,11 @@
 
 
 
-		<ListBox x:Name="ListBoxMedication" Background="Beige" Grid.Column="0" Grid.Row="7" Grid.RowSpan="8" SelectionChanged="AllergyListBoxPost_SelectionChanged"/>
-		<ListBox x:Name="ListBoxPatientMedication" Background="Beige" Grid.Column="1" Grid.Row="7" Grid.RowSpan="8" />
-
+		<ListBox x:Name="ListBoxMedication" Background="Beige" Grid.Column="0" Grid.Row="7" Grid.RowSpan="8" Grid.ColumnSpan="2" SelectionChanged="MedicationListBoxPost_SelectionChanged"/>
+		
 		<!--Concerns-->
 
-		<!--<Label Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Concern</Label>
+		<Label Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Concern</Label>
 		<Label Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">Description</Label>
 
 		<Button Content="Create" Grid.Row="14" Grid.Column="5" Click="ButtonCreateConcern_Click"/>
@@ -145,7 +138,7 @@
 
 		<TextBox x:Name="TextConcern" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="7" Background="White"></TextBox>
 
-		<ListBox x:Name="ListBoxConcern" Background="Beige" Grid.Column="4" Grid.Row="7" Grid.RowSpan="8" SelectionChanged="ConcernListBoxPost_SelectionChanged"/>-->
+		<ListBox x:Name="ListBoxConcern" Background="Beige" Grid.Column="4" Grid.Row="7" Grid.RowSpan="8" SelectionChanged="ConcernListBoxPost_SelectionChanged"/>
 
 	</Grid>
 </Page>

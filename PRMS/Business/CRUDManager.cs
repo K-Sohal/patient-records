@@ -10,14 +10,12 @@ namespace Business
 	public class CRUDManager
 
 	{
-		//private static CRUDManager _CRUDManager = new CRUDManager();
 		static void Main(string[] args)
 		{
-			//var newgp = new Gp();
-			//_CRUDManager.CreatePatient(newgp, "testc", "testc", DateTime.Now, "a", "a", "a", "a", "a", "a", "a");
+
 		}
 
-		//Home logic
+		//Gp logic
 		public Gp selectedGP { get; set; }
 
 		public List<Gp> RetrieveAllGPs()
@@ -54,7 +52,8 @@ namespace Business
 		public List<Allergy> RetrieveAllAllergies()
 		{
 			using var db = new PatientRecordsContext();
-			return db.Allergies.ToList();
+			var PatientAllergies = db.Allergies.Where(p => p.PatientId == selectedPatient.PatientId);
+			return PatientAllergies.ToList();
 		}
 
 		public void SetSelectedAllergy(object selectedItem)
@@ -69,7 +68,8 @@ namespace Business
 		public List<Vaccine> RetrieveAllVaccines()
 		{
 			using var db = new PatientRecordsContext();
-			return db.Vaccines.ToList();
+			var PatientVaccines = db.Vaccines.Where(p => p.PatientId == selectedPatient.PatientId);
+			return PatientVaccines.ToList();
 		}
 
 		public void SetSelectedVaccine(object selectedItem)
@@ -84,7 +84,8 @@ namespace Business
 		public List<Medication> RetrieveAllMedications()
 		{
 			using var db = new PatientRecordsContext();
-			return db.Medications.ToList();
+			var PatientMedications = db.Medications.Where(p => p.PatientId == selectedPatient.PatientId);
+			return PatientMedications.ToList();
 		}
 
 		public void SetSelectedMedication(object selectedItem)
@@ -149,40 +150,31 @@ namespace Business
 			{
 				Concern1 = concern,
 				ConcernDate = DateTime.Now,
-				Patient = patient
+				PatientId = patient.PatientId
 			};
 			db.Concerns.Add(newConcern);
 			db.SaveChanges();
 		}
-		public void CreateVaccine(string name)
+		public void CreateVaccine(Patient patient, string name, DateTime vaccineDate)
 		{
 			using var db = new PatientRecordsContext();
 			var newVaccine = new Vaccine
 			{
-				Vaccine1 = name
+				PatientId = patient.PatientId,
+				Vaccine1 = name,
+				VaccineDate = vaccineDate
 			};
 			db.Vaccines.Add(newVaccine);
 			db.SaveChanges();
 		}
 
-		public void CreatePatientImmunisation(Patient patient, Vaccine vaccine, DateTime vaccineDate)
-		{
-			using var db = new PatientRecordsContext();
-			var newPatientImmunisation = new PatientImmunisation
-			{
-				Patient = patient,
-				Vaccine = vaccine,
-				VaccineDate = vaccineDate
-			};
-			db.PatientImmunisations.Add(newPatientImmunisation);
-			db.SaveChanges();
-		}
 
-		public void CreateAllergy(string allergen, string reaction)
+		public void CreateAllergy(Patient patient, string allergen, string reaction)
 		{
 			using var db = new PatientRecordsContext();
 			var newAllergy = new Allergy
 			{
+				PatientId = patient.PatientId,
 				Allergen = allergen,
 				ReactionType = reaction
 			};
@@ -190,42 +182,19 @@ namespace Business
 			db.SaveChanges();
 		}
 
-		public void CreatePatientAllergy(Patient patient, Allergy allergy)
-		{
-			using var db = new PatientRecordsContext();
-			var newPatientAllergy = new PatientAllergy
-			{
-				Patient = patient,
-				Allergy = allergy
-			};
-			db.PatientAllergies.Add(newPatientAllergy);
-			db.SaveChanges();
-		}
-
-		public void CreateMedication(string name)
+		public void CreateMedication(Patient patient, string name, string frequency, string dosage, DateTime startdate, DateTime stopdate)
 		{
 			using var db = new PatientRecordsContext();
 			var newMedication = new Medication
 			{
-				MedicationName = name
-			};
-			db.Medications.Add(newMedication);
-			db.SaveChanges();
-		}
-
-		public void CreatePatientMedication(Medication medication, Patient patient, string frequency, string dosage, DateTime startdate, DateTime stopdate)
-		{
-			using var db = new PatientRecordsContext();
-			var newPatientMedication = new PatientMedication
-			{
-				Medication = medication,
-				Patient = patient,
+				PatientId = patient.PatientId,
+				MedicationName = name,
 				Frequency = frequency,
 				Dosage = dosage,
 				StartDate = startdate,
 				StopDate = stopdate
 			};
-			db.PatientMedications.Add(newPatientMedication);
+			db.Medications.Add(newMedication);
 			db.SaveChanges();
 		}
 
@@ -261,14 +230,6 @@ namespace Business
 			db.SaveChanges();
 		}
 
-		public void DeletePatientImmunisation(int patientid)
-		{
-			using var db = new PatientRecordsContext();
-			var selectedPatient = db.PatientImmunisations.Where(x => x.PatientId == patientid).FirstOrDefault();
-			db.PatientImmunisations.Remove(selectedPatient);
-			db.SaveChanges();
-		}
-
 		public void DeleteAllergy(int allergyid)
 		{
 			using var db = new PatientRecordsContext();
@@ -277,27 +238,11 @@ namespace Business
 			db.SaveChanges();
 		}
 
-		public void DeletePatientAllergy(int patientid)
-		{
-			using var db = new PatientRecordsContext();
-			var selectedPatient = db.PatientAllergies.Where(x => x.PatientId == patientid).FirstOrDefault();
-			db.PatientAllergies.Remove(selectedPatient);
-			db.SaveChanges();
-		}
-
 		public void DeleteMedication(int medicationid)
 		{
 			using var db = new PatientRecordsContext();
 			var selectedMedication = db.Medications.Where(x => x.MedicationId == medicationid).FirstOrDefault();
 			db.Medications.Remove(selectedMedication);
-			db.SaveChanges();
-		}
-
-		public void DeletePatientMedication(int patientMedicationid)
-		{
-			using var db = new PatientRecordsContext();
-			var selectedPatientMedication = db.PatientMedications.Where(x => x.PatientMedicationId == patientMedicationid).FirstOrDefault();
-			db.PatientMedications.Remove(selectedPatientMedication);
 			db.SaveChanges();
 		}
 
@@ -338,19 +283,12 @@ namespace Business
 			selectedConcern.Concern1 = concern;
 			db.SaveChanges();
 		}
-		public void UpdateVaccine(int vaccineid, string name)
+		public void UpdateVaccine(int vaccineid, string name, DateTime vaccineDate)
 		{
 			using var db = new PatientRecordsContext();
 			var selectedVaccine = db.Vaccines.Where(x => x.VaccineId == vaccineid).FirstOrDefault();
 			selectedVaccine.Vaccine1 = name;
-			db.SaveChanges();
-		}
-
-		public void UpdatePatientImmunisation(int patientid, DateTime vaccinedate)
-		{
-			using var db = new PatientRecordsContext();
-			var selectedPatient = db.PatientImmunisations.Where(x => x.PatientId == patientid).FirstOrDefault();
-			selectedPatient.VaccineDate = vaccinedate;
+			selectedVaccine.VaccineDate = vaccineDate;
 			db.SaveChanges();
 		}
 
@@ -363,24 +301,17 @@ namespace Business
 			db.SaveChanges();
 		}
 
-		public void UpdateMedication(int medicationid, string name)
+		public void UpdateMedication(int medicationid, string name, string frequency, string dosage, DateTime startdate, DateTime stopdate)
 		{
 			using var db = new PatientRecordsContext();
 			var selectedMedication = db.Medications.Where(x => x.MedicationId == medicationid).FirstOrDefault();
 			selectedMedication.MedicationName = name;
+			selectedMedication.Frequency = frequency;
+			selectedMedication.Dosage = dosage;
+			selectedMedication.StartDate = startdate;
+			selectedMedication.StopDate = stopdate;
 			db.SaveChanges();
 		}
 
-		public void UpdatePatientMedication(int patientMedicationid, Medication medication, string frequency, string dosage, DateTime startdate, DateTime stopdate)
-		{
-			using var db = new PatientRecordsContext();
-			var selectedPatientMedication = db.PatientMedications.Where(x => x.PatientMedicationId == patientMedicationid).FirstOrDefault();
-			selectedPatientMedication.Medication = medication;
-			selectedPatientMedication.Frequency = frequency;
-			selectedPatientMedication.Dosage = dosage;
-			selectedPatientMedication.StartDate = startdate;
-			selectedPatientMedication.StopDate = stopdate;
-			db.SaveChanges();
-		}
 	}
 }

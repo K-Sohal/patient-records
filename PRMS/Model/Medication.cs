@@ -7,14 +7,14 @@ namespace Model
 {
     public partial class Medication
     {
-        public Medication()
-        {
-            PatientMedications = new HashSet<PatientMedication>();
-        }
-
         public int MedicationId { get; set; }
+        public int PatientId { get; set; }
         public string MedicationName { get; set; }
+        public string Frequency { get; set; }
+        public string Dosage { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime StopDate { get; set; }
 
-        public virtual ICollection<PatientMedication> PatientMedications { get; set; }
+        public virtual Patient Patient { get; set; }
     }
 }
