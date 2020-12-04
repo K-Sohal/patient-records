@@ -107,3 +107,26 @@ The sprint went well however I overestimated how much I could get done today. I 
 
 ![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/EndofSprint3.png?raw=true "End of Sprint 3")
 
+### Sprint 4 - 04/12/2020
+
+
+By the end of sprint 4, I aim to link patient record functionality to individual patients.
+
+#### Sprint Goals
+
+- [ ] Complete user story 2.1 - Medication CRUD
+- [ ] Complete user story 2.2 - Allergy CRUD
+- [ ] Complete user story 2.3 - Immunisation CRUD
+- [ ] Complete user story 2.4 - Concerns CRUD
+- [ ] Update read me file
+- [ ] Commit all changes from local to github
+- [ ] Complete agile retrospective
+
+#### Sprint Review
+
+
+
+#### Sprint Retrospective
+
+
+
