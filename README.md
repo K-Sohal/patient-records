@@ -78,10 +78,11 @@ All of my sprint goals were completed. The business layer has been tested for GP
 
 As mentioned in the last sprint, creating the GUI and linking it to the business layer takes a large amount of time. Partially due to WPF inexperience and partially to the complexity of my project. This was evident today during my sprint as the majority of my time was used to create the GUI. Therefore it is a good idea to allocate more time to GUI related tasks in upcoming sprints. I also encountered an issue where build creation in Visual Studio was taking a really long time. This was solved by closing and reopening my project.
 
-
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/EndofSprint2.png?raw=true "End of Sprint 2")
 
 ### Sprint 3 - 03/12/2020
 
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/StartofSprint3.png?raw=true "Start of Sprint 3")
 
 By the end of sprint 3, I aim to have all of my GP/ Patient CRUD functionality linked from my business layer to my GUI.
 
