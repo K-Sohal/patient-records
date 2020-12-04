@@ -8,24 +8,103 @@ using Microsoft.EntityFrameworkCore;
 namespace Business
 {
 	public class CRUDManager
+
 	{
+		//private static CRUDManager _CRUDManager = new CRUDManager();
 		static void Main(string[] args)
 		{
+			//var newgp = new Gp();
+			//_CRUDManager.CreatePatient(newgp, "testc", "testc", DateTime.Now, "a", "a", "a", "a", "a", "a", "a");
 		}
 
+		//Home logic
 		public Gp selectedGP { get; set; }
 
 		public List<Gp> RetrieveAllGPs()
 		{
-			using (var db = new PatientRecordsContext())
-			{
-				return db.Gps.ToList();
-			}
+			using var db = new PatientRecordsContext();
+			return db.Gps.ToList();
 		}
 
 		public void SetSelectedGP(object selectedItem)
 		{
 			selectedGP = (Gp)selectedItem;
+		}
+
+		//GPPatient view logic
+
+		public Patient selectedPatient { get; set; }
+
+		public List<Patient> RetrieveAllPatients()
+		{
+			using var db = new PatientRecordsContext();
+			var GPPatients = db.Patients.Where(p => p.Gpid == selectedGP.Gpid);
+			return GPPatients.ToList();
+		}
+
+		public void SetSelectedPatient(object selectedItem)
+		{
+			selectedPatient = (Patient)selectedItem;
+		}
+
+		//Allergies logic
+
+		public Allergy selectedAllergy { get; set; }
+
+		public List<Allergy> RetrieveAllAllergies()
+		{
+			using var db = new PatientRecordsContext();
+			return db.Allergies.ToList();
+		}
+
+		public void SetSelectedAllergy(object selectedItem)
+		{
+			selectedAllergy = (Allergy)selectedItem;
+		}
+
+		//Vaccine logic
+
+		public Vaccine selectedVaccine { get; set; }
+
+		public List<Vaccine> RetrieveAllVaccines()
+		{
+			using var db = new PatientRecordsContext();
+			return db.Vaccines.ToList();
+		}
+
+		public void SetSelectedVaccine(object selectedItem)
+		{
+			selectedVaccine = (Vaccine)selectedItem;
+		}
+
+		//Medication logic
+
+		public Medication selectedMedication { get; set; }
+
+		public List<Medication> RetrieveAllMedications()
+		{
+			using var db = new PatientRecordsContext();
+			return db.Medications.ToList();
+		}
+
+		public void SetSelectedMedication(object selectedItem)
+		{
+			selectedMedication = (Medication)selectedItem;
+		}
+
+		//Concerns logic
+		public Concern selectedConcern { get; set; }
+
+		public List<Concern> RetrieveAllConcerns()
+		{
+			using var db = new PatientRecordsContext();
+			var PatientConcerns = db.Concerns.Where(p => p.PatientId == selectedPatient.PatientId);
+			return PatientConcerns.ToList();
+		}
+
+		public void SetSelectedConcern(object selectedItem)
+		{
+			selectedConcern = (Concern)selectedItem;
 		}
 
 		//Create
@@ -41,13 +120,13 @@ namespace Business
 			db.SaveChanges();
 		}
 
-		public void CreatePatient(Patient gp, string firstName, string lastName, DateTime dob, string address1,
+		public void CreatePatient(Gp gp, string firstName, string lastName, DateTime dob, string address1,
 			string address2, string address3, string city, string region, string postcode, string contactnumber)
 		{
 			using var db = new PatientRecordsContext();
 			var newPatient = new Patient
 			{
-				Gp = gp,
+				Gpid = gp.Gpid,
 				FirstName = firstName,
 				LastName = lastName,
 				DateOfBirth = dob,
@@ -63,7 +142,7 @@ namespace Business
 			db.SaveChanges();
 		}
 
-		public void CreateConcern(string concern, Concern patient)
+		public void CreateConcern(string concern, Patient patient)
 		{
 			using var db = new PatientRecordsContext();
 			var newConcern = new Concern
@@ -233,7 +312,7 @@ namespace Business
 			db.SaveChanges();
 		}
 
-		public void UpdatePatient(int patientid, Patient gp, string firstName, string lastName, DateTime dob, string address1,
+		public void UpdatePatient(int patientid, Gp gp, string firstName, string lastName, DateTime dob, string address1,
 			string address2, string address3, string city, string region, string postcode, string contactnumber)
 		{
 			using var db = new PatientRecordsContext();

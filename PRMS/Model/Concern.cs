@@ -9,7 +9,7 @@ namespace Model
     {
         public Concern()
         {
-            InversePatient = new HashSet<Concern>();
+            //InversePatient = new HashSet<Concern>();
         }
 
         public int ConcernId { get; set; }
@@ -17,7 +17,7 @@ namespace Model
         public string Concern1 { get; set; }
         public DateTime? ConcernDate { get; set; }
 
-        public virtual Concern Patient { get; set; }
+        public virtual Patient Patient { get; set; }
         public virtual ICollection<Concern> InversePatient { get; set; }
     }
 }

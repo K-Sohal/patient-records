@@ -68,12 +68,12 @@ namespace Model
 
                 entity.Property(e => e.PatientId).HasColumnName("PatientID");
 
-                entity.HasOne(d => d.Patient)
-                    .WithMany(p => p.InversePatient)
-                    .HasForeignKey(d => d.PatientId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Concerns__Patien__286302EC");
-            });
+				//entity.HasOne(d => d.Patient)
+				//	.WithMany(p => p.InversePatient)
+				//	.HasForeignKey(d => d.PatientId)
+				//	.OnDelete(DeleteBehavior.ClientSetNull)
+				//	.HasConstraintName("FK__Concerns__Patien__286302EC");
+			});
 
             modelBuilder.Entity<Gp>(entity =>
             {
@@ -157,11 +157,11 @@ namespace Model
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Gp)
-                    .WithMany(p => p.InverseGp)
-                    .HasForeignKey(d => d.Gpid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Patient__GPID__25869641");
+                //entity.HasOne(d => d.Gp)
+                //    .WithMany(p => p.InverseGp)
+                //    .HasForeignKey(d => d.Gpid)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__Patient__GPID__25869641");
             });
 
             modelBuilder.Entity<PatientAllergy>(entity =>

@@ -28,7 +28,7 @@ Title="Home">
 		<Button Content="Create" Grid.Row="4" Grid.Column="1" Click="ButtonCreate_Click"/>
 		<Button Content="Delete" Grid.Row="4" Grid.Column="2" Click="ButtonDelete_Click"/>
 		<Button Content="Update" Grid.Row="5" Grid.Column="1" Click="ButtonUpdate_Click" />
-		<Button Content="View Patients" Grid.Row="5" Grid.Column="2" Background="LightBlue" />
+		<Button Content="View Patients" Grid.Row="5" Grid.Column="2" Click="ButtonView_Click" Background="LightBlue" />
 		
 		
 		<Label x:Name="LabelID" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="1" Background="White" >ID</Label>

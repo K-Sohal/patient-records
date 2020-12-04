@@ -20,14 +20,13 @@ namespace GUI
 	/// </summary>
 	public partial class Home : Page
 	{
+		CRUDManager _crudManager = new CRUDManager();
 		public Home()
 		{
 			InitializeComponent();
 			PopulateListBox();
 		}
-
-		private CRUDManager _crudManager = new CRUDManager();
-
+		
 		private void PopulateListBox()
 		{
 			ListBoxGPs.ItemsSource = _crudManager.RetrieveAllGPs();
@@ -55,6 +54,7 @@ namespace GUI
 				PopulateListBox();
 				_crudManager.selectedGP = null;
 				PopulateGPFields();
+				MessageBox.Show("Successfully deleted!");
 			}
 		}
 
@@ -71,6 +71,7 @@ namespace GUI
 				PopulateListBox();
 				_crudManager.selectedGP = null;
 				PopulateGPFields();
+				MessageBox.Show("Successfully updated!");
 			}
 		}
 
@@ -99,5 +100,21 @@ namespace GUI
 				PopulateGPFields();
 			}
 		}
+
+		private void ButtonView_Click(object sender, RoutedEventArgs e)
+		{
+			if (_crudManager.selectedGP == null)
+			{
+				MessageBox.Show("Please select a GP first!");
+			}
+			else
+			{
+				_crudManager.SetSelectedGP(ListBoxGPs.SelectedItem);
+				GPPatientView gpPatientView = new GPPatientView(_crudManager);
+				this.NavigationService.Navigate(gpPatientView);
+			}
+		}
+
+
 	}
 }

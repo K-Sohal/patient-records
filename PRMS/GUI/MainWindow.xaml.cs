@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Model;
+using Business;
 
 namespace GUI
 {
@@ -20,9 +22,18 @@ namespace GUI
 	/// </summary>
 	public partial class MainWindow : NavigationWindow
 	{
+		CRUDManager mainWindowCRUDManager;
 		public MainWindow()
 		{
 			InitializeComponent();
+			mainWindowCRUDManager = new CRUDManager();
 		}
+
+		public MainWindow(CRUDManager cRUDManager)
+		{
+			InitializeComponent();
+			mainWindowCRUDManager = cRUDManager;
+		}
+
 	}
 }
