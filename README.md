@@ -105,3 +105,5 @@ In this sprint I managed to implement a large amount of CRUD functionality. I al
 
 The sprint went well however I overestimated how much I could get done today. I had to break down the user stories as I would not have had time to link the CRUD functions to the patients. This will be the goal of the next sprint.
 
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/EndofSprint3.png?raw=true "End of Sprint 3")
+
