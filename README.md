@@ -109,24 +109,28 @@ The sprint went well however I overestimated how much I could get done today. I 
 
 ### Sprint 4 - 04/12/2020
 
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/StartofSprint4.png?raw=true "Start of Sprint 4")
 
 By the end of sprint 4, I aim to link patient record functionality to individual patients.
 
 #### Sprint Goals
 
-- [ ] Complete user story 2.1 - Medication CRUD
-- [ ] Complete user story 2.2 - Allergy CRUD
-- [ ] Complete user story 2.3 - Immunisation CRUD
-- [ ] Complete user story 2.4 - Concerns CRUD
-- [ ] Update read me file
-- [ ] Commit all changes from local to github
-- [ ] Complete agile retrospective
+- [x] Complete user story 2.1 - Medication CRUD
+- [x] Complete user story 2.2 - Allergy CRUD
+- [x] Complete user story 2.3 - Immunisation CRUD
+- [x] Complete user story 2.4 - Concerns CRUD
+- [x] Update read me file
+- [x] Commit all changes from local to github
+- [x] Complete agile retrospective
 
 #### Sprint Review
 
-
+In this sprint I was able to meet all of my sprint goals. The GP can now enter patient medication, allergies, immunisation and any concerns for each of their patients. I was able to finish the goals before the sprint ended so I started working on User Story 1 - Creating an authentication system. I created the pages for GP login and registration which I will be linking to my business layer in the next sprint.
 
 #### Sprint Retrospective
 
+I managed to complete all user stories in a short amount of time due to modifying the database to make it simpler so that the MVP can be achieved. With the remaining time I moved onto authentication but also spent some time making the GUI look like a medical application. To improve on this sprint I could have stayed on task better by only moving onto the prioritised user stories after finishing the sprint goals. Additionally, I lost some motivation to get work done when all sprint goals were achieved, therefore self motivation when completing goals early is a key improvement point for future sprints.
+
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/EndofSprint4.png?raw=true "End of Sprint 4")
 
 
