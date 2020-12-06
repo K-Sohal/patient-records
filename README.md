@@ -133,4 +133,35 @@ I managed to complete all user stories in a short amount of time due to modifyin
 
 ![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/EndofSprint4.png?raw=true "End of Sprint 4")
 
+### Sprint 5 - 06/12/2020
 
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/StartofSprint5.png?raw=true "Start of Sprint 5")
+
+By the end of sprint 5, I aim have complete GP registration and login functionality. I also aim to add validation checks on this process and other CRUD functionality so that the application no longer crashes on empty or null input.
+
+#### Sprint Goals
+
+- [x] Complete user story 1.1
+- [x] Complete user story 1.1.1
+- [x] Complete user story 1.2
+- [x] Complete user story 1.2.1
+- [x] Complete user story 1.2.2
+- [x] Complete user story 1.2.3
+- [x] Commit all changes from local to github
+- [x] Complete agile retrospective
+- [x] Add class diagrams to read me
+- [x] Add application screenshots to read me
+
+#### Sprint Review
+
+In this sprint I was able to meet all of my sprint goals. The GP can now register with an email and password and login to the application. I added input validation so that all registration fields must be entered to register. Additionally, if an email already exists in the database then a new user cannot register with the same email. All my error handling were in the form of nested if else conditions. In the future I would like to use try catch exceptions instead and create my own exceptions or use a validation package such as Fluent Validation which makes user input validation more manageable.
+
+#### Sprint Retrospective
+
+This is my final sprint and I feel like I have achieved all the basic functionality that a GP would need. In order to improve this sprint, it may have been useful to learn about validation checking and error handling before writing my code. If I had done this, then I would have been able to write cleaner code instead of using many nested if conditions.
+
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/EndofSprint5.png?raw=true "End of Sprint 5")
+
+## Project Review
+
+## Project Retrospective
