@@ -9,12 +9,12 @@
       Title="Login" Background="White">
 
 	<Grid>
-		<PasswordBox HorizontalAlignment="Center" Margin="0,228,0,0" VerticalAlignment="Top" Width="308" Height="32"/>
-		<Label Content="Password" HorizontalAlignment="Left" Margin="142,222,0,0" VerticalAlignment="Top" Height="44" Width="140" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
+		<PasswordBox x:Name="PasswordTextBox" HorizontalAlignment="Center" Margin="0,228,0,0" VerticalAlignment="Top" Width="308" Height="32"/>
+		<Label Content="Password" HorizontalAlignment="Left" Margin="142,222,0,0" VerticalAlignment="Top" Height="44" Width="99" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
 		<Label Content="GP Login" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Height="55" Width="132" FontSize="30"/>
-		<Label Content="Email" HorizontalAlignment="Left" Margin="142,156,0,0" VerticalAlignment="Top" Height="44" Width="140" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
-		<TextBox HorizontalAlignment="Center" Margin="0,162,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Height="32"/>
-		<Button Content="Login" FontSize="18" Height="32" HorizontalAlignment="Center" Margin="0,295,0,0" Name="button1" VerticalAlignment="Top" Width="308"/>
-		<Button Content="Register" FontSize="18" Height="32" HorizontalAlignment="Center" Margin="0,355,0,0" x:Name="button1_Copy" VerticalAlignment="Top" Width="308"/>
+		<Label Content="Email" HorizontalAlignment="Left" Margin="142,156,0,0" VerticalAlignment="Top" Height="44" Width="85" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
+		<TextBox x:Name="EmailTextBox" HorizontalAlignment="Center" Margin="0,162,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Height="32"/>
+		<Button Content="Login" FontSize="18" Height="32" HorizontalAlignment="Center" Margin="0,295,0,0" x:Name="LoginBtn" VerticalAlignment="Top" Width="308" Click="LoginBtn_Click"/>
+		<Button Content="Register" FontSize="18" Height="32" HorizontalAlignment="Center" Margin="0,355,0,0" x:Name="Registerbtn" VerticalAlignment="Top" Width="308" Click="Registerbtn_Click"/>
 	</Grid>
 </Page>

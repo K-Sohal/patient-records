@@ -29,7 +29,12 @@ namespace GUI
 			TextDOB.SelectedDate = null;
 		}
 
-
+		private bool FieldValidation()
+		{
+			return string.IsNullOrWhiteSpace(TextForename.Text) || string.IsNullOrWhiteSpace(TextSurname.Text)
+		|| string.IsNullOrWhiteSpace(TextAddress1.Text) || string.IsNullOrWhiteSpace(TextCity.Text) || string.IsNullOrWhiteSpace(TextRegion.Text) || string.IsNullOrWhiteSpace(TextCity.Text)
+		|| string.IsNullOrWhiteSpace(TextRegion.Text) || string.IsNullOrWhiteSpace(TextPostcode.Text) || TextDOB.SelectedDate == null;
+		}
 		private void PopulateListBox()
 		{
 			ListBoxPatients.ItemsSource = _crudManager.RetrieveAllPatients();
@@ -37,12 +42,19 @@ namespace GUI
 
 		private void ButtonCreate_Click(object sender, RoutedEventArgs e)
 		{
-			_crudManager.CreatePatient(_crudManager.selectedGP, TextForename.Text, TextSurname.Text, TextDOB.SelectedDate.Value,
+			if (FieldValidation())
+			{
+				MessageBox.Show("Please enter all required fields");
+			}
+			else
+			{
+				_crudManager.CreatePatient(_crudManager.selectedGP, TextForename.Text, TextSurname.Text, TextDOB.SelectedDate.Value,
 				TextAddress1.Text, TextAddress2.Text, TextAddress3.Text, TextCity.Text, TextRegion.Text, TextPostcode.Text, TextNumber.Text);
-			ListBoxPatients.ItemsSource = null;
-			PopulateListBox();
-			ListBoxPatients.SelectedItem = _crudManager.selectedPatient;
-			PopulatePatientFields();
+				ListBoxPatients.ItemsSource = null;
+				PopulateListBox();
+				ListBoxPatients.SelectedItem = _crudManager.selectedPatient;
+				PopulatePatientFields();
+			}
 		}
 
 		private void ButtonDelete_Click(object sender, RoutedEventArgs e)
@@ -70,13 +82,21 @@ namespace GUI
 			}
 			else
 			{
-				_crudManager.UpdatePatient(_crudManager.selectedPatient.PatientId, _crudManager.selectedGP, TextForename.Text, TextSurname.Text, TextDOB.SelectedDate.Value,
-				TextAddress1.Text, TextAddress2.Text, TextAddress3.Text, TextCity.Text, TextRegion.Text, TextPostcode.Text, TextNumber.Text);
-				ListBoxPatients.ItemsSource = null;
-				PopulateListBox();
-				_crudManager.selectedPatient = null;
-				PopulatePatientFields();
-				MessageBox.Show("Successfully updated!");
+				if (FieldValidation())
+				{
+					MessageBox.Show("Please enter all required fields");
+				}
+				else
+				{
+					_crudManager.UpdatePatient(_crudManager.selectedPatient.PatientId, _crudManager.selectedGP, TextForename.Text, TextSurname.Text, TextDOB.SelectedDate.Value,
+					TextAddress1.Text, TextAddress2.Text, TextAddress3.Text, TextCity.Text, TextRegion.Text, TextPostcode.Text, TextNumber.Text);
+					ListBoxPatients.ItemsSource = null;
+					PopulateListBox();
+					_crudManager.selectedPatient = null;
+					PopulatePatientFields();
+					MessageBox.Show("Successfully updated!");
+				}
+
 			}
 		}
 
@@ -124,9 +144,9 @@ namespace GUI
 
 		private void ButtonView_Click(object sender, RoutedEventArgs e)
 		{
-			if (_crudManager.selectedGP == null)
+			if (_crudManager.selectedPatient == null)
 			{
-				MessageBox.Show("Please select a GP first!");
+				MessageBox.Show("Please select a Patient first!");
 			}
 			else
 			{

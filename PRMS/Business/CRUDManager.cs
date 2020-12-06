@@ -15,6 +15,46 @@ namespace Business
 
 		}
 
+		//Register logic
+
+		public bool CheckPassword(string password, string confirmedPassword)
+		{
+			return password == confirmedPassword;
+		}
+
+		public bool EmailExists(string email)
+		{
+			using var db = new PatientRecordsContext();
+			var Email = db.Gps.Where(e => e.Gpemail.ToLower() == email.ToLower()).FirstOrDefault();
+			if (Email != null)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		//Login logic
+
+		public bool CheckLoginDetails(string email, string password)
+		{
+			using var db = new PatientRecordsContext();
+			var selectedGP = db.Gps.Where(e => e.Gpemail == email).FirstOrDefault();
+			if (selectedGP != null)
+			{
+				if (selectedGP.Gppassword == password)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public void SetGP(string email)
+		{
+			using var db = new PatientRecordsContext();
+			selectedGP = db.Gps.Where(e => e.Gpemail == email).FirstOrDefault();
+		}
+
 		//Gp logic
 		public Gp selectedGP { get; set; }
 
@@ -109,11 +149,13 @@ namespace Business
 		}
 
 		//Create
-		public void CreateGP(string firstName, string lastName)
+		public void CreateGP(string email, string password, string firstName, string lastName)
 		{
 			using var db = new PatientRecordsContext();
 			var newGP = new Gp
 			{
+				Gpemail = email,
+				Gppassword = password,
 				FirstName = firstName,
 				LastName = lastName
 			};

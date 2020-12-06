@@ -25,7 +25,7 @@ Title="Home">
 		<Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="Black">GP</Label>
 		
 		
-		<Button Content="Create" Grid.Row="4" Grid.Column="1" Click="ButtonCreate_Click"/>
+		<!--<Button Content="Create" Grid.Row="4" Grid.Column="1" Click="ButtonCreate_Click"/>-->
 		<Button Content="Delete" Grid.Row="4" Grid.Column="2" Click="ButtonDelete_Click"/>
 		<Button Content="Update" Grid.Row="5" Grid.Column="1" Click="ButtonUpdate_Click" />
 		<Button Content="View Patients" Grid.Row="5" Grid.Column="2" Click="ButtonView_Click" Background="LightBlue" />

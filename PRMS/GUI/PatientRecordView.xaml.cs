@@ -39,14 +39,26 @@ namespace GUI
 			ListBoxAllergy.ItemsSource = _crudManager.RetrieveAllAllergies();
 		}
 
+		private bool AllergyFieldValidation()
+		{
+			return string.IsNullOrWhiteSpace(TextAllergen.Text) || string.IsNullOrWhiteSpace(TextReaction.Text);
+		}
+
 
 		private void ButtonCreate_Click(object sender, RoutedEventArgs e)
 		{
-			_crudManager.CreateAllergy(_crudManager.selectedPatient, TextAllergen.Text, TextReaction.Text);
-			ListBoxAllergy.ItemsSource = null;
-			PopulateAllergyListBox();
-			ListBoxAllergy.SelectedItem = _crudManager.selectedAllergy;
-			PopulateAllergyFields();
+			if (AllergyFieldValidation())
+			{
+				MessageBox.Show("Please enter all allergy fields");
+			}
+			else
+			{
+				_crudManager.CreateAllergy(_crudManager.selectedPatient, TextAllergen.Text, TextReaction.Text);
+				ListBoxAllergy.ItemsSource = null;
+				PopulateAllergyListBox();
+				ListBoxAllergy.SelectedItem = _crudManager.selectedAllergy;
+				PopulateAllergyFields();
+			}
 		}
 
 		private void ButtonDelete_Click(object sender, RoutedEventArgs e)
@@ -74,12 +86,19 @@ namespace GUI
 			}
 			else
 			{
-				_crudManager.UpdateAllergy(_crudManager.selectedAllergy.AllergyId, TextAllergen.Text, TextReaction.Text);
-				ListBoxAllergy.ItemsSource = null;
-				PopulateAllergyListBox();
-				_crudManager.selectedAllergy = null;
-				PopulateAllergyFields();
-				MessageBox.Show("Successfully updated!");
+				if (AllergyFieldValidation())
+				{
+					MessageBox.Show("Please enter all allergy fields");
+				}
+				else
+				{
+					_crudManager.UpdateAllergy(_crudManager.selectedAllergy.AllergyId, TextAllergen.Text, TextReaction.Text);
+					ListBoxAllergy.ItemsSource = null;
+					PopulateAllergyListBox();
+					_crudManager.selectedAllergy = null;
+					PopulateAllergyFields();
+					MessageBox.Show("Successfully updated!");
+				}
 			}
 		}
 
@@ -118,13 +137,25 @@ namespace GUI
 			ListBoxVaccine.ItemsSource = _crudManager.RetrieveAllVaccines();
 		}
 
+		private bool VaccineFieldValidation()
+		{
+			return string.IsNullOrWhiteSpace(TextVaccine.Text) || TextVaccineDate.SelectedDate == null;
+		}
+
 		private void ButtonCreateVaccine_Click(object sender, RoutedEventArgs e)
 		{
-			_crudManager.CreateVaccine(_crudManager.selectedPatient, TextVaccine.Text, TextVaccineDate.SelectedDate.Value);
-			ListBoxVaccine.ItemsSource = null;
-			PopulateVaccineListBox();
-			ListBoxVaccine.SelectedItem = _crudManager.selectedVaccine;
-			PopulateVaccineFields();
+			if (VaccineFieldValidation())
+			{
+				MessageBox.Show("Please enter all vaccine fields");
+			}
+			else
+			{
+				_crudManager.CreateVaccine(_crudManager.selectedPatient, TextVaccine.Text, TextVaccineDate.SelectedDate.Value);
+				ListBoxVaccine.ItemsSource = null;
+				PopulateVaccineListBox();
+				ListBoxVaccine.SelectedItem = _crudManager.selectedVaccine;
+				PopulateVaccineFields();
+			}
 		}
 
 		private void ButtonDeleteVaccine_Click(object sender, RoutedEventArgs e)
@@ -152,12 +183,19 @@ namespace GUI
 			}
 			else
 			{
-				_crudManager.UpdateVaccine(_crudManager.selectedVaccine.VaccineId ,TextVaccine.Text, TextVaccineDate.SelectedDate.Value);
-				ListBoxVaccine.ItemsSource = null;
-				PopulateVaccineListBox();
-				_crudManager.selectedVaccine = null;
-				PopulateVaccineFields();
-				MessageBox.Show("Successfully updated!");
+				if (VaccineFieldValidation())
+				{
+					MessageBox.Show("Please enter all vaccine fields");
+				}
+				else
+				{
+					_crudManager.UpdateVaccine(_crudManager.selectedVaccine.VaccineId, TextVaccine.Text, TextVaccineDate.SelectedDate.Value);
+					ListBoxVaccine.ItemsSource = null;
+					PopulateVaccineListBox();
+					_crudManager.selectedVaccine = null;
+					PopulateVaccineFields();
+					MessageBox.Show("Successfully updated!");
+				}
 			}
 		}
 
@@ -194,13 +232,26 @@ namespace GUI
 			ListBoxMedication.ItemsSource = _crudManager.RetrieveAllMedications();
 		}
 
+		private bool MedicineFieldValidation()
+		{
+			return string.IsNullOrWhiteSpace(TextName.Text) || string.IsNullOrWhiteSpace(TextFrequency.Text) || string.IsNullOrWhiteSpace(TextDosage.Text)
+				|| TextStart.SelectedDate == null || TextStop.SelectedDate == null;
+		}
+
 		private void ButtonCreateMedication_Click(object sender, RoutedEventArgs e)
 		{
-			_crudManager.CreateMedication(_crudManager.selectedPatient, TextName.Text, TextFrequency.Text, TextDosage.Text, TextStart.SelectedDate.Value, TextStop.SelectedDate.Value);
-			ListBoxMedication.ItemsSource = null;
-			PopulateMedicineListBox();
-			ListBoxMedication.SelectedItem = _crudManager.selectedMedication;
-			PopulateMedicationFields();
+			if (MedicineFieldValidation())
+			{
+				MessageBox.Show("Please enter all medicine fields");
+			}
+			else
+			{
+				_crudManager.CreateMedication(_crudManager.selectedPatient, TextName.Text, TextFrequency.Text, TextDosage.Text, TextStart.SelectedDate.Value, TextStop.SelectedDate.Value);
+				ListBoxMedication.ItemsSource = null;
+				PopulateMedicineListBox();
+				ListBoxMedication.SelectedItem = _crudManager.selectedMedication;
+				PopulateMedicationFields();
+			}
 		}
 
 		private void ButtonDeleteMedication_Click(object sender, RoutedEventArgs e)
@@ -228,12 +279,19 @@ namespace GUI
 			}
 			else
 			{
-				_crudManager.UpdateMedication(_crudManager.selectedMedication.MedicationId, TextName.Text, TextFrequency.Text, TextDosage.Text, TextStart.SelectedDate.Value, TextStop.SelectedDate.Value);
-				ListBoxMedication.ItemsSource = null;
-				PopulateMedicineListBox();
-				_crudManager.selectedMedication = null;
-				PopulateMedicationFields();
-				MessageBox.Show("Successfully updated!");
+				if (MedicineFieldValidation())
+				{
+					MessageBox.Show("Please enter all medicine fields");
+				}
+				else
+				{
+					_crudManager.UpdateMedication(_crudManager.selectedMedication.MedicationId, TextName.Text, TextFrequency.Text, TextDosage.Text, TextStart.SelectedDate.Value, TextStop.SelectedDate.Value);
+					ListBoxMedication.ItemsSource = null;
+					PopulateMedicineListBox();
+					_crudManager.selectedMedication = null;
+					PopulateMedicationFields();
+					MessageBox.Show("Successfully updated!");
+				}
 			}
 		}
 
@@ -275,13 +333,25 @@ namespace GUI
 			ListBoxConcern.ItemsSource = _crudManager.RetrieveAllConcerns();
 		}
 
+		private bool ConcernFieldValidation()
+		{
+			return string.IsNullOrWhiteSpace(TextConcern.Text);
+		}
+
 		private void ButtonCreateConcern_Click(object sender, RoutedEventArgs e)
 		{
-			_crudManager.CreateConcern(TextConcern.Text, _crudManager.selectedPatient);
-			ListBoxConcern.ItemsSource = null;
-			PopulateConcernListBox();
-			ListBoxConcern.SelectedItem = _crudManager.selectedConcern;
-			PopulateConcernFields();
+			if (ConcernFieldValidation())
+			{
+				MessageBox.Show("Please enter a concern");
+			}
+			else
+			{
+				_crudManager.CreateConcern(TextConcern.Text, _crudManager.selectedPatient);
+				ListBoxConcern.ItemsSource = null;
+				PopulateConcernListBox();
+				ListBoxConcern.SelectedItem = _crudManager.selectedConcern;
+				PopulateConcernFields();
+			}
 		}
 
 		private void ButtonDeleteConcern_Click(object sender, RoutedEventArgs e)
@@ -309,12 +379,19 @@ namespace GUI
 			}
 			else
 			{
-				_crudManager.UpdateConcern(_crudManager.selectedConcern.ConcernId, TextConcern.Text);
-				ListBoxConcern.ItemsSource = null;
-				PopulateConcernListBox();
-				_crudManager.selectedConcern = null;
-				PopulateConcernFields();
-				MessageBox.Show("Successfully updated!");
+				if (ConcernFieldValidation())
+				{
+					MessageBox.Show("Please enter a concern");
+				}
+				else
+				{
+					_crudManager.UpdateConcern(_crudManager.selectedConcern.ConcernId, TextConcern.Text);
+					ListBoxConcern.ItemsSource = null;
+					PopulateConcernListBox();
+					_crudManager.selectedConcern = null;
+					PopulateConcernFields();
+					MessageBox.Show("Successfully updated!");
+				}
 			}
 		}
 

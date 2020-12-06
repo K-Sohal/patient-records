@@ -91,6 +91,18 @@ namespace Model
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Gpemail)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("GPEmail");
+
+                entity.Property(e => e.Gppassword)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("GPPassword");
+
                 entity.Property(e => e.LastName)
                     .IsRequired()
                     .HasMaxLength(30)

@@ -15,6 +15,8 @@ namespace Model
         public int Gpid { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Gpemail { get; set; }
+        public string Gppassword { get; set; }
 
         public virtual ICollection<Patient> Patients { get; set; }
     }

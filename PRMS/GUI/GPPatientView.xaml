@@ -42,16 +42,16 @@
 
 
 		<Label x:Name="LabelID" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="1" Background="White" >ID</Label>
-		<Label x:Name="LabelForename" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="1" Background="White" >Forename</Label>
-		<Label x:Name="LabelSurname" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1" Background="White" >Surname</Label>
-		<Label x:Name="LabelDOB" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="4" Grid.Column="1" Background="White" >DOB</Label>
-		<Label x:Name="LabelAddress1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="5" Grid.Column="1" Background="White" >Address1</Label>
+		<Label x:Name="LabelForename" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="1" Background="White" >Forename*</Label>
+		<Label x:Name="LabelSurname" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1" Background="White" >Surname*</Label>
+		<Label x:Name="LabelDOB" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="4" Grid.Column="1" Background="White" >DOB*</Label>
+		<Label x:Name="LabelAddress1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="5" Grid.Column="1" Background="White" >Address1*</Label>
 		<Label x:Name="LabelAddress2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="6" Grid.Column="1" Background="White" >Address2</Label>
 		<Label x:Name="LabelAddress3" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="7" Grid.Column="1" Background="White" >Address3</Label>
-		<Label x:Name="LabelCity" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="8" Grid.Column="1" Background="White" >City</Label>
-		<Label x:Name="LabelRegion" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="9" Grid.Column="1" Background="White" >Region</Label>
-		<Label x:Name="LabelPostCode" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="10" Grid.Column="1" Background="White" >Postcode</Label>
-		<Label x:Name="LabelNumber" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="11" Grid.Column="1" Background="White" >Contact number</Label>
+		<Label x:Name="LabelCity" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="8" Grid.Column="1" Background="White" >City*</Label>
+		<Label x:Name="LabelRegion" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="9" Grid.Column="1" Background="White" >Region*</Label>
+		<Label x:Name="LabelPostCode" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="10" Grid.Column="1" Background="White" >Postcode*</Label>
+		<Label x:Name="LabelNumber" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.Row="11" Grid.Column="1" Background="White" >Contact number*</Label>
 
 
 		<TextBox x:Name="TextID" Grid.Row="1" Grid.Column="2" Background="White" IsEnabled="False" IsReadOnlyCaretVisible="True"></TextBox>

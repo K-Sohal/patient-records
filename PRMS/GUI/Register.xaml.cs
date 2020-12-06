@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Business;
 
 namespace GUI
 {
@@ -18,9 +19,45 @@ namespace GUI
 	/// </summary>
 	public partial class Register : Page
 	{
-		public Register()
+		CRUDManager _crudManager;
+		public Register(CRUDManager cRUDManager)
 		{
 			InitializeComponent();
+			_crudManager = cRUDManager;
+		}
+
+		private bool FieldValidation()
+		{
+			return string.IsNullOrWhiteSpace(FirstNameTextBox.Text) || string.IsNullOrWhiteSpace(LastNameTextBox.Text)
+				|| string.IsNullOrWhiteSpace(EmailTextBox.Text) || string.IsNullOrWhiteSpace(Passwordbox.Password);
+		}
+
+		private void Registerbtn_Click(object sender, RoutedEventArgs e)
+		{
+			if (FieldValidation())
+			{
+				MessageBox.Show("Please enter a value in all fields");
+			}
+			else
+			{
+				if (_crudManager.EmailExists(EmailTextBox.Text))
+				{
+					MessageBox.Show("Email already exists");
+				}
+				else
+				{
+					if (_crudManager.CheckPassword(Passwordbox.Password, ConfirmPasswordBox.Password))
+					{
+						_crudManager.CreateGP(EmailTextBox.Text, Passwordbox.Password, FirstNameTextBox.Text, LastNameTextBox.Text);
+						MessageBox.Show("Registration successful");
+						this.NavigationService.Navigate(new Login());
+					}
+					else
+					{
+						MessageBox.Show("Passwords do not match");
+					}
+				}
+			}
 		}
 	}
 }

@@ -32,14 +32,14 @@ namespace GUI
 			ListBoxGPs.ItemsSource = _crudManager.RetrieveAllGPs();
 		}
 
-		private void ButtonCreate_Click(object sender, RoutedEventArgs e)
-		{
-			_crudManager.CreateGP(TextForename.Text, TextSurname.Text);
-			ListBoxGPs.ItemsSource = null;
-			PopulateListBox();
-			ListBoxGPs.SelectedItem = _crudManager.selectedGP;
-			PopulateGPFields();
-		}
+		//private void ButtonCreate_Click(object sender, RoutedEventArgs e)
+		//{
+		//	_crudManager.CreateGP(TextForename.Text, TextSurname.Text);
+		//	ListBoxGPs.ItemsSource = null;
+		//	PopulateListBox();
+		//	ListBoxGPs.SelectedItem = _crudManager.selectedGP;
+		//	PopulateGPFields();
+		//}
 
 		private void ButtonDelete_Click(object sender, RoutedEventArgs e)
 		{

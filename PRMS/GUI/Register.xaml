@@ -9,18 +9,18 @@
       Title="Register" Background="White">
 
 	<Grid>
-		<PasswordBox HorizontalAlignment="Center" Margin="0,271,0,0" VerticalAlignment="Top" Width="308" Height="32"/>
-		<PasswordBox HorizontalAlignment="Center" Margin="0,228,0,0" VerticalAlignment="Top" Width="308" Height="32"/>
-		<Label Content="Password" HorizontalAlignment="Left" Margin="147,222,0,0" VerticalAlignment="Top" Height="44" Width="140" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
+		<PasswordBox x:Name="ConfirmPasswordBox" HorizontalAlignment="Center" Margin="0,271,0,0" VerticalAlignment="Top" Width="308" Height="32"/>
+		<PasswordBox x:Name="Passwordbox" HorizontalAlignment="Center" Margin="0,228,0,0" VerticalAlignment="Top" Width="308" Height="32"/>
+		<Label Content="Password" HorizontalAlignment="Left" Margin="147,222,0,0" VerticalAlignment="Top" Height="44" Width="94" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
 		<Label Content="GP Registration" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Height="55" Width="226" FontSize="30"/>
-		<Label Content="Email" HorizontalAlignment="Left" Margin="179,181,0,0" VerticalAlignment="Top" Height="44" Width="140" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
-		<Button Content="Register" FontSize="18" Height="32" HorizontalAlignment="Center" Margin="0,326,0,0" x:Name="button1_Copy" VerticalAlignment="Top" Width="308"/>
-		<TextBox HorizontalAlignment="Center" Margin="0,185,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Height="32"/>
-		<TextBox HorizontalAlignment="Center" Margin="0,144,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Height="32"/>
-		
-		<Label Content="Confirm Password" HorizontalAlignment="Left" Margin="74,265,0,0" VerticalAlignment="Top" Height="44" Width="245" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
-		<TextBox HorizontalAlignment="Center" Margin="0,101,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Height="32"/>
-		<Label Content="First name" HorizontalAlignment="Left" Margin="139,95,0,0" VerticalAlignment="Top" Height="44" Width="140" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
-		<Label Content="Last name" HorizontalAlignment="Left" Margin="139,138,0,0" VerticalAlignment="Top" Height="44" Width="140" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
+		<Label Content="Email" HorizontalAlignment="Left" Margin="179,181,0,0" VerticalAlignment="Top" Height="44" Width="62" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
+		<Button Content="Register" FontSize="18" Height="32" HorizontalAlignment="Center" Margin="0,326,0,0" x:Name="Registerbtn" VerticalAlignment="Top" Width="308" Click="Registerbtn_Click"/>
+		<TextBox x:Name="EmailTextBox" HorizontalAlignment="Center" Margin="0,185,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Height="32"/>
+		<TextBox x:Name="LastNameTextBox" HorizontalAlignment="Center" Margin="0,144,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Height="32"/>
+
+		<Label Content="Confirm Password" HorizontalAlignment="Left" Margin="74,265,0,0" VerticalAlignment="Top" Height="44" Width="167" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
+		<TextBox x:Name="FirstNameTextBox" HorizontalAlignment="Center" Margin="0,101,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Height="32"/>
+		<Label Content="First name" HorizontalAlignment="Left" Margin="139,95,0,0" VerticalAlignment="Top" Height="44" Width="102" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
+		<Label Content="Last name" HorizontalAlignment="Left" Margin="139,138,0,0" VerticalAlignment="Top" Height="44" Width="102" FontSize="20" RenderTransformOrigin="0.681,0.114"/>
 	</Grid>
 </Page>
