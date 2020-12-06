@@ -20,9 +20,17 @@ User specific goals:
 * High usability for data entry
 * Data security
 
-## Class Diagrams
+## Class Diagram
+
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/ClassDiagram.png?raw=true "Class Diagram")
 
 ## WPF
+
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/WPF1.png?raw=true)
+
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/WPF2.png?raw=true)
+
+![](https://github.com/K-Sohal/patient-records/blob/main/DocumentationImages/WPF3.png?raw=true)
 
 ## Sprint Breakdowns
 
