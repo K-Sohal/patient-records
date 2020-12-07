@@ -17,7 +17,7 @@ namespace Tests
 		public void Setup()
 		{
 			using var db = new PatientRecordsContext();
-			var selectedGP = db.Gps.Where(x => x.FirstName == "Bob").FirstOrDefault();
+			var selectedGP = db.Gps.Where(x => x.Gpemail == "test@test.com").FirstOrDefault();
 			if (selectedGP != null)
 			{
 				db.Remove(selectedGP);
@@ -30,7 +30,7 @@ namespace Tests
 		public void TearDown()
 		{
 			using var db = new PatientRecordsContext();
-			var selectedGP = db.Gps.Where(x => x.FirstName == "Bob").FirstOrDefault();
+			var selectedGP = db.Gps.Where(x => x.Gpemail == "test@test.com").FirstOrDefault();
 			if (selectedGP != null)
 			{
 				db.Remove(selectedGP);
@@ -43,7 +43,7 @@ namespace Tests
 		{
 			using var db = new PatientRecordsContext();
 			int startUserCount = db.Gps.Count();
-			_crudManager.CreateGP("Bob", "Sam");
+			_crudManager.CreateGP("test@test.com", "test123", "test1", "test2");
 			int endUserCount = db.Gps.Count();
 			Assert.AreEqual(startUserCount + 1, endUserCount);
 		}
@@ -52,10 +52,12 @@ namespace Tests
 		public void WhenANewGPIsAdded_TheirNameIsCorrect()
 		{
 			using var db = new PatientRecordsContext();
-			_crudManager.CreateGP("Bob", "Sam");
-			var query = db.Gps.Where(u => u.FirstName == "Bob").FirstOrDefault();
-			Assert.AreEqual("Bob", query.FirstName);
-			Assert.AreEqual("Sam", query.LastName);
+			_crudManager.CreateGP("test@test.com", "test123", "test1", "test2");
+			var query = db.Gps.Where(x => x.Gpemail == "test@test.com").FirstOrDefault();
+			Assert.AreEqual("test1", query.FirstName);
+			Assert.AreEqual("test2", query.LastName);
+			Assert.AreEqual("test@test.com", query.Gpemail);
+			Assert.AreEqual("test123", query.Gppassword);
 		}
 	}
 }
