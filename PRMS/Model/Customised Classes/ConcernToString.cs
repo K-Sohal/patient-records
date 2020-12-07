@@ -8,7 +8,7 @@ namespace Model
 	{
 		public override string ToString()
 		{
-			return $"{ConcernId} {ConcernDate}";
+			return $"{ConcernDate}";
 		}
 	}
 }
