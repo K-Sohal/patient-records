@@ -172,4 +172,8 @@ This is my final sprint and I feel like I have achieved all the basic functional
 
 ## Project Review
 
+The project MVP was achieved and additional features were added. The remaining user stories increase the usablity of the application. The application passes all unit tests. Extensive manual testing has been performed with the GUI to ensure that normal function does not result in program crashes. All documentation has been completed to the required standard.
+
 ## Project Retrospective
+
+At the beginning of the project there was too much project scope for the given timeframe. Midway through the project the scope was reduced which resulted in a usable product which was then added upon in the following sprints. As the project progressed, adding more and more features to the minimum viable product was enjoyable because there was no pressure to complete a working prototype.
